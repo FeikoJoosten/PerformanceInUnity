@@ -11,10 +11,10 @@ public class UpdateManager : MonoBehaviour
     }
 
     private void FixedUpdate() {
-		OnFixedUpdateEvent?.Invoke();
+	OnFixedUpdateEvent?.Invoke();
     }
 
     private void LateUpdate() {
-		OnLateUpdateEvent?.Invoke();
+	OnLateUpdateEvent?.Invoke();
     }
 }
