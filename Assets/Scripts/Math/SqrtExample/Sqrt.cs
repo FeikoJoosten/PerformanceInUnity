@@ -2,16 +2,27 @@
 
 public abstract class Sqrt
 {
-	public float SqrtTest(int iterations) {
-		Stopwatch stopwatch = new Stopwatch();
+	private readonly Stopwatch stopwatch;
+
+	protected Sqrt() {
+		stopwatch = new Stopwatch();
+	}
+
+	public void Awake() {
+		OnAwake();
+	}
+
+    public float SqrtTest(int iterations, bool useBurst, out float total) {
+		stopwatch.Reset();
 		stopwatch.Start();
 
-		SqrtInternal(iterations);
+		SqrtInternal(iterations, useBurst, out total);
 
 		stopwatch.Stop();
 
-		return stopwatch.ElapsedMilliseconds;
+		return stopwatch.ElapsedTicks;
 	}
 
-	protected abstract void SqrtInternal(int iterations);
+    protected abstract void OnAwake();
+	protected abstract void SqrtInternal(int iterations, bool useBurst, out float total);
 }

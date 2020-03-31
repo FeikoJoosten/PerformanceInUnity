@@ -43,7 +43,7 @@ public class Counter : MonoBehaviour
     }
 
     private IEnumerator Log() {
-        WaitForSeconds delay = new WaitForSeconds(1f);
+	    WaitForEndOfFrame delay = new WaitForEndOfFrame();
         while(true) {
             yield return delay;
             if(num > 0) UnityEngine.Debug.Log("Last time: " + (float)last / Stopwatch.Frequency * 1000f + "ms. Average time: " + (float)(total / num) / Stopwatch.Frequency * 1000f + "ms.");
